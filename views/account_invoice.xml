@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="clk_riba_extended_invoice_form" model="ir.ui.view">
+            <field name="name">clk.riba.extended.invoice.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_form"/>
+            <field name="arch" type="xml">
+                <field name="payment_term_id" position="after">
+                    <field name="riba" invisible="1" />
+                    <field name="res_partner_bank_id" attrs="{'required': [('riba', '=', True)], 'invisible': [('riba', '=', False)]}" />
+                    <field name="res_partner_bank_name" attrs="{'invisible': [('riba', '=', False)]}" />
+                </field>
+            </field>
+        </record>
+    </data>
+</odoo>

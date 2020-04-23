@@ -13,6 +13,6 @@ class AccountInvoice(models.Model):
                 'domain': {'res_partner_bank_id': [('partner_id', '=', self.partner_id.id)]}
             }
 
-    res_partner_bank_id = fields.Many2one('res.partner.bank', string=_('RiBa Bank account'))
+    res_partner_bank_id = fields.Many2one('res.partner.bank', string=_('RiBa Bank account'), readonly=True, states={'draft': [('readonly', False)]})
     riba = fields.Boolean(related='payment_term_id.riba')
     res_partner_bank_name = fields.Char(related='res_partner_bank_id.bank_id.name', readonly=True, string=_('RiBa Bank name'))

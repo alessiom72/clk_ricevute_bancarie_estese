@@ -9,7 +9,8 @@
             <field name="arch" type="xml">
                 <field name="payment_term_id" position="after">
                     <field name="riba" invisible="1" />
-                    <field name="res_partner_bank_id" attrs="{'required': [('riba', '=', True)], 'invisible': [('riba', '=', False)]}" />
+                    <field name="res_partner_bank_id" attrs="{'required': [('riba', '=', True)], 'invisible': [('riba', '=', False)]}"
+                           domain="[('partner_id', '=', partner_id)]" />
                     <field name="res_partner_bank_name" attrs="{'invisible': [('riba', '=', False)]}" />
                 </field>
             </field>
